@@ -15,7 +15,7 @@ from the Westeros Wiki page.
 You can make your search query by hitting:
 
 ```
-https://jonas-of-thrones.herokuapp.com/image?name<full_character_name_here>
+https://jonas-of-thrones.herokuapp.com/image?name=<full_character_name_here>
 ```
 
 Be sure to include the character's full name, separated by a space. Examples would be:
