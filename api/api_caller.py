@@ -37,7 +37,9 @@ def get_GOT_char(char_name):
     else:
         img_url = ROOT + img['srcset']
     # If not a thumbnail, remove size chars from end of url,
-    if "thumb" not in img_url:
+    if "png" in img_url:
+        img_url = img_url.split('png')[0] + 'png'
+    elif "thumb" not in img_url:
         img_url = img_url.split('jpg')[0] + 'jpg'
     # Remove  1st whitespace
     img_url = img_url.replace(' ', '', 1)
