@@ -30,16 +30,18 @@ def get_GOT_char(char_name):
     # Obtain char main image data from parsed wiki page
     img = soup.find('tr').find('img')
     # Get full url to image. Depending on source, we set the image_url a specific way
-    if "/images" in img['src']:
+    if "thumb" in img['src']:
+        img_url = ROOT + img['src']
+    elif "/images" in img['src']:
         img_url = ROOT + img['src']
     elif "," in img['srcset']:
         img_url = ROOT + img['srcset'].split(',')[1]
     else:
         img_url = ROOT + img['srcset']
     # If not a thumbnail, remove size chars from end of url,
-    if "png" in img_url:
-        img_url = img_url.split('png')[0] + 'png'
-    elif "thumb" not in img_url:
+    # if "png" in img_url:
+        # img_url = img_url.split('png')[0] + 'png'
+    if "thumb" not in img_url:
         img_url = img_url.split('jpg')[0] + 'jpg'
     # Remove  1st whitespace
     img_url = img_url.replace(' ', '', 1)
